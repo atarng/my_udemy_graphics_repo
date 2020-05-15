@@ -40,7 +40,19 @@ function init() {
 
 function createBall() {
     // Do not change the color itself, change the material and use the ambient and diffuse components. 
-	var material = new THREE.MeshBasicMaterial( { color: 0x80FC66, shading: THREE.FlatShading } );
+	var material = new THREE.MeshLambertMaterial( { color: 0x80FC66, shading: THREE.FlatShading } );
+	var ka = 0.4;
+	// atarng: DEPRECATED
+	// material.ambient.setRGB( material.color.r * ka, material.color.g * ka, material.color.b * ka );
+	//
+	// The ambient reflectance of the material (how the material responds to indirect, or ambient, light)
+	// is now assumed to be the same as the diffuse reflectance of the material
+	// (how the material responds to direct light).
+	// The diffuse reflectance of the material is also known as the material's color.
+	// three.js r.80
+
+	material.color = new THREE.Color(material.color.r * ka,
+																	 material.color.g * ka,
 	var sphere = new THREE.Mesh( new THREE.SphereGeometry( 400, 64, 32 ), material );
 	return sphere;
 }
