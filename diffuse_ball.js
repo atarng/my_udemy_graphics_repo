@@ -68,10 +68,6 @@ function fillScene() {
 
 	var ball = createBall();
 	scene.add( ball );
-
-	//Coordinates.drawGround({size:1000});
-	//Coordinates.drawGrid({size:1000,scale:0.01});
-	//Coordinates.drawAllAxes({axisLength:500,axisRadius:1,axisTess:4});
 }
 
 function addToDOM() {

@@ -123,20 +123,52 @@ function setupGui() {
 		}
 	};
 
-/*// atarng DEPRECATED?
 	var gui = new dat.GUI();
 	gui.add(effectController, "newGridX").name("Show XZ grid");
 	gui.add( effectController, "newGridY" ).name("Show YZ grid");
 	gui.add( effectController, "newGridZ" ).name("Show XY grid");
 	gui.add( effectController, "newGround" ).name("Show ground");
 	gui.add( effectController, "newAxes" ).name("Show axes");
-*/
+
 }
 
-function drawGrid(size, divisions){
+// atarng
+function drawGrid(size, divisions, axis) {
 	var gridHelper = new THREE.GridHelper( size, divisions );
+	switch(axis) {
+		case "y":
+			gridHelper.rotateX( Math.PI / 2 );
+			break;
+		case "z":
+				gridHelper.rotateZ( Math.PI / 2 );
+				break;
+		// Think the default is correct here... we'll see.
+		case "x":
+		default:
+			break;
+	}
 	scene.add( gridHelper );
 	return gridHelper;
+}
+function drawHelpers() {
+	// if (ground) {
+	// 	Coordinates.drawGround({size:10000});
+	// }
+	if (gridX) {
+		// Coordinates.drawGrid({size:10000,scale:0.01});
+		drawGrid(10000, 1000, "x");
+	}
+	if (gridY) {
+		drawGrid(10000, 1000, "y");
+		// Coordinates.drawGrid({size:10000,scale:0.01, orientation:"y"});
+	}
+	if (gridZ) {
+		drawGrid(10000, 1000, "z");
+		// Coordinates.drawGrid({size:10000,scale:0.01, orientation:"z"});
+	}
+	// if (axes) {
+	// 	Coordinates.drawAllAxes({axisLength:200,axisRadius:1,axisTess:50});
+	// }
 }
 
 try {
@@ -146,5 +178,6 @@ try {
   animate();
 } catch(e) {
 	var errorReport = "Your program encountered an unrecoverable error, can not draw on canvas. Error was:<br/><br/>";
+	// atarng
 	console.log(errorReport+e);
 }
