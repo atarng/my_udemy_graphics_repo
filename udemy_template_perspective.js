@@ -151,24 +151,15 @@ function drawGrid(size, divisions, axis) {
 	return gridHelper;
 }
 function drawHelpers() {
-	// if (ground) {
-	// 	Coordinates.drawGround({size:10000});
-	// }
 	if (gridX) {
-		// Coordinates.drawGrid({size:10000,scale:0.01});
 		drawGrid(10000, 1000, "x");
 	}
 	if (gridY) {
 		drawGrid(10000, 1000, "y");
-		// Coordinates.drawGrid({size:10000,scale:0.01, orientation:"y"});
 	}
 	if (gridZ) {
 		drawGrid(10000, 1000, "z");
-		// Coordinates.drawGrid({size:10000,scale:0.01, orientation:"z"});
 	}
-	// if (axes) {
-	// 	Coordinates.drawAllAxes({axisLength:200,axisRadius:1,axisTess:50});
-	// }
 }
 
 try {

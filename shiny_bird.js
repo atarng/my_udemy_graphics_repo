@@ -31,13 +31,6 @@ function fillScene() {
 }
 
 function createDrinkingBird() {
-	//////////////////////////////
-	// YOU SHOULD MODIFY THE SHININESS:
-	// use MeshPhongMaterial
-	// hat and body: 100
-	// leg: 4
-	// foot: 30
-	// specular color for all of these to 0.5,0.5,0.5
 	var headMaterial = new THREE.MeshLambertMaterial( );
 	headMaterial.color.r = 104/255;
 	headMaterial.color.g = 1/255;
@@ -160,6 +153,10 @@ function createDrinkingBird() {
 	cylinder.position.y = 160 + 390 + 40 + 10 + 70/2;
 	cylinder.position.z = 0;
 	scene.add( cylinder );
+
+
+	
+
 }
 
 function init() {
